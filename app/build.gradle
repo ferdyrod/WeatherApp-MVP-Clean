@@ -22,23 +22,23 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
     // Android Support
-    compile     'com.android.support:appcompat-v7:25.3.1'
-    compile     'com.android.support:design:25.3.1'
-    compile     'com.android.support:support-v4:25.3.1'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.android.support:support-v4:25.3.1'
 
     // Play Services
-    compile     'com.google.android.gms:play-services-maps:11.0.1'
-    compile     'com.google.android.gms:play-services-location:11.0.1'
+    compile 'com.google.android.gms:play-services-maps:11.0.1'
+    compile 'com.google.android.gms:play-services-location:11.0.1'
 
     // Net
-    compile     'com.squareup.retrofit2:retrofit:2.3.0'
-    compile     'com.squareup.retrofit2:converter-gson:2.3.0'
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
 
     // DI
-    compile     'com.jakewharton:butterknife:8.6.0'
-    apt         'com.jakewharton:butterknife-compiler:8.6.0'
-
+    compile 'com.jakewharton:butterknife:8.6.0'
+    apt 'com.jakewharton:butterknife-compiler:8.6.0'
 
     // Test
     testCompile 'junit:junit:4.12'

@@ -1,6 +1,7 @@
 package com.ferdyrodriguez.weatherapp.weathercast.view;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -19,6 +20,8 @@ import android.widget.Toast;
 
 import com.ferdyrodriguez.weatherapp.R;
 import com.ferdyrodriguez.weatherapp.app.BaseActivity;
+import com.ferdyrodriguez.weatherapp.app.Constants;
+import com.ferdyrodriguez.weatherapp.map.view.MapActivity;
 import com.ferdyrodriguez.weatherapp.weathercast.presenter.WeatherCastPresenter;
 import com.ferdyrodriguez.weatherapp.weathercast.presenter.WeatherCastPresenterImpl;
 import com.ferdyrodriguez.weatherapp.weathercast.repository.model.WeatherCastResponse;
@@ -58,6 +61,7 @@ public class WeatherCastActivity extends BaseActivity implements WeatherCastView
     private FusedLocationProviderClient fusedLocationProviderClient;
     private WeatherCastPresenter presenter;
     private String mCity;
+    private Location mLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +104,7 @@ public class WeatherCastActivity extends BaseActivity implements WeatherCastView
                         @Override
                         public void onSuccess(Location location) {
                             if(location != null) {
+                                mLocation = location;
                                 Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
                                 try {
                                     List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
@@ -141,6 +146,10 @@ public class WeatherCastActivity extends BaseActivity implements WeatherCastView
     @OnClick(R.id.btnGoToMap)
     @Override
     public void navigateToMap() {
+        Intent intent = new Intent(this, MapActivity.class);
+        intent.putExtra(Constants.LATITUDE, mLocation.getLatitude());
+        intent.putExtra(Constants.LONGITUDE, mLocation.getLongitude());
+        startActivity(intent);
 
     }
 
