@@ -6,5 +6,5 @@ package com.ferdyrodriguez.weatherapp.weathercast.repository;
 
 public interface WeatherCastRepository {
 
-    void getWeatherFromApi();
+    void getWeatherFromApi(String city);
 }

@@ -5,5 +5,5 @@ package com.ferdyrodriguez.weatherapp.weathercast.interactor;
  */
 
 public interface WeatherCastInteractor {
-    void getWeatherCast(String lat, String lon);
+    void getWeatherCast(String city);
 }

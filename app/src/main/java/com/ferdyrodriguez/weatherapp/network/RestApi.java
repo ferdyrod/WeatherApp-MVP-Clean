@@ -4,6 +4,7 @@ import com.ferdyrodriguez.weatherapp.weathercast.repository.model.WeatherCastRes
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 
 /**
@@ -13,6 +14,6 @@ import retrofit2.http.GET;
 public interface RestApi {
 
     @GET("data/2.5/weather?")
-    Call<WeatherCastResponse> getWeatherCast();
+    Call<WeatherCastResponse> getWeatherCast(@Query("q") String city);
 
 }

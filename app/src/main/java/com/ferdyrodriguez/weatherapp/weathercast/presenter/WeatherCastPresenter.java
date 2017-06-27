@@ -1,5 +1,7 @@
 package com.ferdyrodriguez.weatherapp.weathercast.presenter;
 
+import com.ferdyrodriguez.weatherapp.weathercast.repository.model.WeatherCastResponse;
+
 /**
  * Created by ferdyrod on 6/27/17.
  */
@@ -7,10 +9,9 @@ package com.ferdyrodriguez.weatherapp.weathercast.presenter;
 public interface WeatherCastPresenter {
 
     // to Interactor
-    void getWeatherCast(String lat, String lon);
-    void goToMap();
+    void getWeatherCast(String city);
 
     // to view
-    void showWeatherCast();
-    void checkLocationPermission();
+    void showWeatherCast(WeatherCastResponse response);
+    void showWeatherCastError(String error);
 }
